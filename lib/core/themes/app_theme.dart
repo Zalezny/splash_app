@@ -6,25 +6,21 @@ class AppTheme {
         primaryColor: AppColors.primary,
         scaffoldBackgroundColor: AppColors.primary,
         textTheme: const TextTheme(
-          // Styl dla głównych tytułów
           titleLarge: TextStyle(
             fontSize: 26,
             color: AppColors.textWhite,
             fontWeight: FontWeight.w400,
           ),
-          // Styl dla pogrubionych tytułów
           titleMedium: TextStyle(
             fontSize: 26,
             color: AppColors.textWhite,
             fontWeight: FontWeight.bold,
           ),
-          // Styl dla przycisków
           labelLarge: TextStyle(
             fontSize: 16,
             color: AppColors.textWhite,
             fontWeight: FontWeight.w600,
           ),
-          // Styl dla przycisków pomocniczych (np. "Pomiń")
           labelMedium: TextStyle(
             fontSize: 16,
             color: AppColors.textWhite70,
@@ -49,10 +45,10 @@ class AppTheme {
             backgroundColor: AppColors.primaryDark,
             padding: const EdgeInsets.symmetric(
               horizontal: 48,
-              vertical: 16,
+              vertical: 14,
             ),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(24),
+              borderRadius: BorderRadius.circular(30),
               side: const BorderSide(color: AppColors.borderWhite, width: 2),
             ),
             elevation: 0,

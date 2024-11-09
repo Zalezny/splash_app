@@ -54,6 +54,7 @@ class _NavigationButtons extends StatelessWidget {
             AppStrings.skip,
             style: TextStyle(
               color: currentPage > 0 ? AppColors.textWhite70 : AppColors.textWhite30,
+              fontSize: 20,
             ),
           ),
         ),

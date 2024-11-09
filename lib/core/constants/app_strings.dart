@@ -13,7 +13,7 @@ class AppStrings {
   static const pathsBold = 'szlaki';
   static const remindersBold = 'przypomnienia';
   static const upToDateBold = 'na bieżąco';
-  static const yourRhythmBold = 'swój rytm';
+  static const yourRhythmBold = 'swój rytm!';
 
   // Second line parts
   static const inEventsSuffix = 'w wydarzeniach!';
