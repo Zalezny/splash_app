@@ -45,22 +45,28 @@ class _NavigationButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        TextButton(
-          onPressed: onPrevious,
-          child: Text(
-            AppStrings.skip,
-            style: TextStyle(
-              color: currentPage > 0 ? AppColors.textWhite70 : AppColors.textWhite30,
-              fontSize: 20,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          TextButton(
+            onPressed: onPrevious,
+            child: Text(
+              AppStrings.skip,
+              style: TextStyle(
+                color: currentPage > 0 ? AppColors.textWhite70 : AppColors.textWhite30,
+                fontSize: 20,
+              ),
             ),
           ),
-        ),
-        const SizedBox(width: 24),
-        FrameButton(onPressed: onNext, text: AppStrings.next),
-      ],
+          const SizedBox(width: 24),
+          FrameButton(
+            onPressed: onNext,
+            text: AppStrings.next,
+          ),
+        ],
+      ),
     );
   }
 }

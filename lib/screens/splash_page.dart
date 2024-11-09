@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../controllers/splash_page_controller.dart';
 import '../widgets/splash_page_buttons.dart';
 import '../widgets/splash_page_image.dart';
-import '../widgets/styled_rich_text.dart';
+import '../widgets/splash_title_section.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -14,6 +14,8 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
   late final SplashPageController _controller;
+  // The key is used to preserve the page index when the app is rotated
+  final _pageViewKey = const PageStorageKey('splash_page_view');
 
   @override
   void initState() {
@@ -32,37 +34,36 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
+    final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
+
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
-            const Spacer(flex: 1),
+            if (!isLandscape) const Spacer(flex: 1),
             Expanded(
-              flex: 8,
+              flex: isLandscape ? 10 : 8,
               child: PageView.builder(
+                key: _pageViewKey,
                 controller: _controller.pageController,
                 physics: const NeverScrollableScrollPhysics(),
                 onPageChanged: _controller.onPageChanged,
                 itemCount: _controller.pages.length,
                 itemBuilder: (context, index) {
-                  final page = _controller.pages[index];
                   return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      StyledRichText(parts: page.titleFirstLineParts),
-                      if (page.titleSecondLineParts.isNotEmpty) ...[
-                        const SizedBox(height: 8),
-                        StyledRichText(parts: page.titleSecondLineParts),
-                      ],
+                      SplashTitleSection(page: _controller.pages[index]),
                       const SizedBox(height: 20),
                       SplashPageImage(
-                        imagePath: page.imagePath,
+                        imagePath: _controller.pages[index].imagePath,
                       ),
                     ],
                   );
                 },
               ),
             ),
-            const Spacer(flex: 1),
+            if (!isLandscape) const Spacer(flex: 1),
             SplashPageButtons(
               currentPage: _controller.currentPage,
               totalPages: _controller.pages.length,
@@ -72,7 +73,7 @@ class _SplashPageState extends State<SplashPage> {
                 _controller.previousPage();
               },
             ),
-            const SizedBox(height: 40),
+            SizedBox(height: isLandscape ? 20 : 40),
           ],
         ),
       ),
