@@ -54,7 +54,7 @@ class _SplashPageState extends State<SplashPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SplashTitleSection(page: _controller.pages[index]),
-                      const SizedBox(height: 20),
+                      if (!isLandscape) const SizedBox(height: 20),
                       SplashPageImage(
                         imagePath: _controller.pages[index].imagePath,
                       ),
@@ -74,6 +74,7 @@ class _SplashPageState extends State<SplashPage> {
               },
             ),
             SizedBox(height: isLandscape ? 20 : 40),
+            if (!isLandscape) const Spacer(),
           ],
         ),
       ),

@@ -28,4 +28,6 @@ class AppStrings {
   static const String skip = 'Pomiń';
   static const String next = 'Dalej';
   static const String letsStart = 'Zaczynamy!';
+
+  static const String appName = 'Splash App';
 }

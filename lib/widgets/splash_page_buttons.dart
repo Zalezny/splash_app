@@ -60,7 +60,6 @@ class _NavigationButtons extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(width: 24),
           FrameButton(
             onPressed: onNext,
             text: AppStrings.next,

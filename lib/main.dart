@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'core/constants/app_strings.dart';
 import 'core/themes/app_theme.dart';
 import 'screens/splash_page.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Splash App',
+      title: AppStrings.appName,
       theme: AppTheme.theme,
       home: const SplashPage(),
     );
