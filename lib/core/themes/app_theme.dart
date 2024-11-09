@@ -3,34 +3,45 @@ import '../constants/app_colors.dart';
 
 class AppTheme {
   static ThemeData get theme => ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
+        primaryColor: AppColors.primary,
         scaffoldBackgroundColor: AppColors.primary,
-        useMaterial3: false,
         textTheme: const TextTheme(
-          // Dla głównych nagłówków (pierwsza linia w splash)
+          // Styl dla głównych tytułów
           titleLarge: TextStyle(
             fontSize: 26,
             color: AppColors.textWhite,
             fontWeight: FontWeight.w400,
-            height: 1.2,
           ),
-          // Dla podtytułów (druga linia w splash)
+          // Styl dla pogrubionych tytułów
           titleMedium: TextStyle(
             fontSize: 26,
             color: AppColors.textWhite,
             fontWeight: FontWeight.bold,
-            height: 1.2,
           ),
-          // Dla przycisków
+          // Styl dla przycisków
           labelLarge: TextStyle(
+            fontSize: 16,
             color: AppColors.textWhite,
-            fontSize: 14,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w600,
           ),
-          // Dla tekstu "Pomiń"
+          // Styl dla przycisków pomocniczych (np. "Pomiń")
           labelMedium: TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.w400,
+            fontSize: 16,
+            color: AppColors.textWhite70,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            foregroundColor: AppColors.textWhite70,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 48,
+              vertical: 16,
+            ),
+            textStyle: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -38,7 +49,7 @@ class AppTheme {
             backgroundColor: AppColors.primaryDark,
             padding: const EdgeInsets.symmetric(
               horizontal: 48,
-              vertical: 12,
+              vertical: 16,
             ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(24),

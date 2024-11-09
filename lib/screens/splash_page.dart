@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../controllers/splash_page_controller.dart';
-import '../core/constants/app_colors.dart';
+import '../models/splash_page_data.dart';
 import '../widgets/splash_page_buttons.dart';
 import '../widgets/splash_page_image.dart';
 
@@ -30,10 +30,24 @@ class _SplashPageState extends State<SplashPage> {
     super.dispose();
   }
 
+  Widget _buildRichText(List<TextPart> parts) {
+    final textTheme = Theme.of(context).textTheme;
+    return RichText(
+      text: TextSpan(
+        style: textTheme.titleLarge,
+        children: parts.map((part) {
+          return TextSpan(
+            text: part.text,
+            style: part.isBold ? textTheme.titleMedium : null,
+          );
+        }).toList(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primary,
       body: SafeArea(
         child: Column(
           children: [
@@ -49,23 +63,11 @@ class _SplashPageState extends State<SplashPage> {
                   final page = _controller.pages[index];
                   return Column(
                     children: [
-                      Text(
-                        page.titleFirstLine,
-                        style: const TextStyle(
-                          fontSize: 26,
-                          color: AppColors.textWhite,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        page.titleSecondLine,
-                        style: const TextStyle(
-                          fontSize: 26,
-                          color: AppColors.textWhite,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      _buildRichText(page.titleFirstLineParts),
+                      if (page.titleSecondLineParts.isNotEmpty) ...[
+                        const SizedBox(height: 8),
+                        _buildRichText(page.titleSecondLineParts),
+                      ],
                       const SizedBox(height: 20),
                       SplashPageImage(
                         imagePath: page.imagePath,

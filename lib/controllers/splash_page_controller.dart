@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import '../models/splash_page_data.dart';
+
 import '../core/constants/app_assets.dart';
 import '../core/constants/app_strings.dart';
+import '../models/splash_page_data.dart';
 
 class SplashPageController extends ChangeNotifier {
   final PageController pageController = PageController();
@@ -9,33 +10,60 @@ class SplashPageController extends ChangeNotifier {
 
   final List<SplashPageData> pages = const [
     SplashPageData(
-      titleFirstLine: AppStrings.spendTimeTitle,
-      titleSecondLine: AppStrings.spendTimeSubtitle,
+      titleFirstLineParts: [
+        TextPart(AppStrings.spendTimeTitle),
+      ],
+      titleSecondLineParts: [
+        TextPart(AppStrings.creativelyBold, isBold: true),
+        TextPart(AppStrings.exclamationMark),
+      ],
       imagePath: AppAssets.image2,
     ),
     SplashPageData(
-      titleFirstLine: AppStrings.discoverTitle,
-      titleSecondLine: AppStrings.discoverSubtitle,
+      titleFirstLineParts: [
+        TextPart(AppStrings.participateBold, isBold: true),
+      ],
+      titleSecondLineParts: [
+        TextPart(AppStrings.inEventsSuffix),
+      ],
       imagePath: AppAssets.image3,
     ),
     SplashPageData(
-      titleFirstLine: AppStrings.haveTitle,
-      titleSecondLine: AppStrings.haveSubtitle,
+      titleFirstLineParts: [
+        TextPart(AppStrings.exploreTitle),
+      ],
+      titleSecondLineParts: [
+        TextPart(AppStrings.undiscoveredPrefix),
+        TextPart(AppStrings.pathsBold, isBold: true),
+        TextPart(AppStrings.exclamationMark),
+      ],
       imagePath: AppAssets.image4,
     ),
     SplashPageData(
-      titleFirstLine: AppStrings.catchTitle,
-      titleSecondLine: AppStrings.catchSubtitle,
+      titleFirstLineParts: [
+        TextPart(AppStrings.setTitle),
+      ],
+      titleSecondLineParts: [
+        TextPart(AppStrings.remindersBold, isBold: true),
+        TextPart(AppStrings.exclamationMark),
+      ],
       imagePath: AppAssets.image5,
     ),
     SplashPageData(
-      titleFirstLine: "Bądź na bieżąco",
-      titleSecondLine: "",
+      titleFirstLineParts: [
+        TextPart(AppStrings.stayTitle),
+        TextPart(AppStrings.upToDateBold, isBold: true),
+        TextPart(AppStrings.exclamationMark),
+      ],
+      titleSecondLineParts: [],
       imagePath: AppAssets.image6,
     ),
     SplashPageData(
-      titleFirstLine: "Złap swój rytm",
-      titleSecondLine: "",
+      titleFirstLineParts: [
+        TextPart(AppStrings.catchTitle),
+        TextPart(AppStrings.yourRhythmBold, isBold: true),
+      ],
+      titleSecondLineParts: [],
       imagePath: AppAssets.image1,
     ),
   ];
